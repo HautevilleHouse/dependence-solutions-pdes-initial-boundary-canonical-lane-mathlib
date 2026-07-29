@@ -1,0 +1,17 @@
+import canonicalLaneMathlib.AdmissibleClass
+import DependenceSolutionsPdesInitialBoundaryCanonicalLaneLean.PdeSobolevWellPosedness
+import DependenceSolutionsPdesInitialBoundaryCanonicalLaneLean.InitialBoundaryLayers
+import DependenceSolutionsPdesInitialBoundaryCanonicalLaneLean.MethodOfCharacteristics
+
+namespace HautevilleHouse
+namespace DependenceSolutionsPdesInitialBoundaryCanonicalLaneLean
+
+def ConstrainedDependenceSolutionsClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_dependence_solutions_endgame (A : AdmissibleClass) :
+    ConstrainedDependenceSolutionsClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end DependenceSolutionsPdesInitialBoundaryCanonicalLaneLean
+end HautevilleHouse
